@@ -80,8 +80,8 @@ export const selectMqDown = size =>
     prop(size)
   )(breakpoints)
 
-export const up = size => style => ({ [selectMqUp(size)]: style })
-export const down = size => style => ({ [selectMqDown(size)]: style })
+export const up = size => style => css({ [selectMqUp(size)]: style })
+export const down = size => style => css({ [selectMqDown(size)]: style })
 
 // Use up by default for media queries
 export const mq = up

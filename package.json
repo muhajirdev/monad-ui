@@ -1,0 +1,39 @@
+{
+  "name": "monad-ui",
+  "version": "1.0.0",
+  "description": "Utility first CSS-in-JS",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhajirdev/monad-ui.git"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.9"
+  },
+  "keywords": [
+    "CSS-in-JS",
+    "monad-ui",
+    "css",
+    "js",
+    "javascript",
+    "utility"
+  ],
+  "author": "Muhammad Muhajir <muhammad@muhajir.dev>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhajirdev/monad-ui/issues"
+  },
+  "homepage": "https://github.com/muhajirdev/monad-ui#readme",
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "ramda": "^0.26.1"
+  }
+}

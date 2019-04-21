@@ -1,7 +1,63 @@
 import { css } from '@emotion/core'
 import { prop, compose } from 'ramda'
+import facepaint from 'facepaint'
 
 export const name = 'monad-ui'
+
+/* MEDIA QUERIES */
+const breakpoints = {
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+}
+export const selectMqUp = size =>
+  compose(
+    bp => `@media (min-width: ${bp})`,
+    prop(size)
+  )(breakpoints)
+
+export const selectMqDown = size =>
+  compose(
+    bp => `@media (max-width: ${bp})`,
+    prop(size)
+  )(breakpoints)
+
+export const up = size => style => ({ [selectMqUp(size)]: style })
+export const down = size => style => ({ [selectMqDown(size)]: style })
+
+// Use up by default for media queries
+export const mq = up
+
+const facepaintMq = facepaint(
+  Object.keys(breakpoints).map(selectMqUp)
+) 
+
+const responsiveStyle = (prop, val) => {
+  if (Array.isArray(val)) {
+    css(facepaintMq({
+      [prop]: val
+    }))
+  }
+  
+  if (typeof val === "object") {
+    return css(facepaintMq({
+      [prop]: Object.keys(breakpoints).map(size => {
+        const valueForThisQuery = val[size]
+        if (!valueForThisQuery) {
+          return undefined
+        }
+        return val[size]
+      })
+    }))
+  }
+
+  // If It's a not Array and not Object
+  return css({
+    [prop]: val
+  })
+}
+
 
 /* DISPLAY */
 export const hidden = css({ display: 'none' })
@@ -42,11 +98,11 @@ export const py = arg => css(pt(arg), pb(arg))
 export const p = arg => css(py(arg), px(arg))
 
 /* COLOR */
-export const bg = arg => css({ background: arg })
+export const bg = arg => responsiveStyle('background', arg )
 export const color = arg => css({ color: arg })
 
 /* LENGTH */
-export const width = arg => css({ width: arg })
+export const width = arg => responsiveStyle('width', arg)
 export const maxWidth = arg => css({ maxWidth: arg })
 export const w = width
 export const maxW = maxWidth
@@ -61,30 +117,6 @@ export const round = arg => css({ borderRadius: arg })
 export const rounded = round('.25rem')
 export const border = arg => css({ border: arg })
 
-/* MEDIA QUERIES */
-const breakpoints = {
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-}
-export const selectMqUp = size =>
-  compose(
-    bp => `@media (min-width: ${bp})`,
-    prop(size)
-  )(breakpoints)
-
-export const selectMqDown = size =>
-  compose(
-    bp => `@media (max-width: ${bp})`,
-    prop(size)
-  )(breakpoints)
-
-export const up = size => style => css({ [selectMqUp(size)]: style })
-export const down = size => style => css({ [selectMqDown(size)]: style })
-
-// Use up by default for media queries
-export const mq = up
 
 /* LINK HELPER */
 export const link = css({

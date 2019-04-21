@@ -1,12 +1,12 @@
 {
   "name": "monad-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility first CSS-in-JS",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
-    "build": "babel src -d lib"
+    "build": "babel src -d lib --source-maps"
   },
   "repository": {
     "type": "git",

@@ -34,6 +34,12 @@ const facepaintMq = facepaint(
 ) 
 
 const responsiveStyle = (prop, val) => {
+
+  // If style is composed
+  if (Array.isArray(prop)) {
+    return css(prop.map(fn => fn(val)))
+  }
+
   if (Array.isArray(val)) {
     return css(facepaintMq({
       [prop]: val
@@ -84,18 +90,18 @@ export const ml = arg => responsiveStyle('marginLeft', arg)
 export const mr = arg => responsiveStyle('marginRight', arg )
 export const mt = arg => responsiveStyle('marginTop', arg)
 export const mb = arg => responsiveStyle('marginBottom', arg)
-export const mx = arg => css(ml(arg), mr(arg))
-export const my = arg => css(mt(arg), mb(arg))
-export const m = arg => css(my(arg), mx(arg))
+export const mx = arg => responsiveStyle([ml, mr], arg)
+export const my = arg => responsiveStyle([mb, mt], arg)
+export const m = arg => responsiveStyle([my,mx], arg)
 
 /* PADDING */
 export const pl = arg => responsiveStyle('paddingLeft', arg)
 export const pr = arg => responsiveStyle('paddingRight', arg)
 export const pt = arg => responsiveStyle('paddingTop', arg)
 export const pb = arg => responsiveStyle('paddingBottom', arg)
-export const px = arg => css(pl(arg), pr(arg))
-export const py = arg => css(pt(arg), pb(arg))
-export const p = arg => css(py(arg), px(arg))
+export const px = arg => responsiveStyle([pl, pr], arg)
+export const py = arg => responsiveStyle([pt, pb], arg)
+export const p = arg => responsiveStyle([px, py], arg)
 
 /* COLOR */
 export const bg = arg => responsiveStyle('background', arg )

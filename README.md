@@ -21,6 +21,28 @@ In this tutorial we're going to use emotion's css prop API
 import * as S from 'monad-ui`
 ```
 
+In component
+
+```
+<div css={S.bg('blue)}>
+Monad UI
+</div>
+```
+
+With more styles
+
+
+```
+<div css={[
+    S.bg('blue'),
+    S.color('red),
+]}>
+Monad UI
+</div>
+```
+
+It will styles the `div`'s `background` to `blue` and `color` to `red`
+
 # 3 Ways to make the style Responsive
 
 Currenlty, We have 4 breakpoints:
@@ -120,7 +142,7 @@ And use it like this
 <div css={bg('blue')}></div>
 ```
 
-## Too many styles ? 
+## Too many styles ?
 
 Consider extracting your style outside
 

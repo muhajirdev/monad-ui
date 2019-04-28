@@ -25,7 +25,7 @@ In component
 
 ```
 <div css={S.bg('blue)}>
-Monad UI
+    Monad UI
 </div>
 ```
 

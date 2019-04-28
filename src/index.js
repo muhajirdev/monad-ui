@@ -67,10 +67,10 @@ export const flex = css({ display: 'flex' })
 export const inlineFlex = css({ display: 'inline-flex' })
 
 /* FLEX */
-export const flexWrap = (arg = 'wrap') => css({ flexWrap: arg })
-export const flexDirection = arg => css({ flexDirection: arg })
-export const alignItems = arg => css({ alignItems: arg })
-export const justifyContent = arg => css({ justifyContent: arg })
+export const flexWrap = (arg = 'wrap') => responsiveStyle('flexWrap', arg)
+export const flexDirection = arg => responsiveStyle('flexDirection', arg)
+export const alignItems = arg => responsiveStyle('alignItems', arg)
+export const justifyContent = arg => responsiveStyle('justifyContent', arg)
 
 export const justifyBetween = css(justifyContent('space-between'))
 export const flexCol = flexDirection('column')
@@ -80,42 +80,42 @@ export const centerX = css(flex, { justifyContent: 'center' })
 export const centerY = css(flex, alignItems('center'))
 
 /* MARGIN */
-export const ml = arg => css({ marginLeft: arg })
-export const mr = arg => css({ marginRight: arg })
-export const mt = arg => css({ marginTop: arg })
-export const mb = arg => css({ marginBottom: arg })
+export const ml = arg => responsiveStyle('marginLeft', arg)
+export const mr = arg => responsiveStyle('marginRight', arg )
+export const mt = arg => responsiveStyle('marginTop', arg)
+export const mb = arg => responsiveStyle('marginBottom', arg)
 export const mx = arg => css(ml(arg), mr(arg))
 export const my = arg => css(mt(arg), mb(arg))
 export const m = arg => css(my(arg), mx(arg))
 
 /* PADDING */
-export const pl = arg => css({ paddingLeft: arg })
-export const pr = arg => css({ paddingRight: arg })
-export const pt = arg => css({ paddingTop: arg })
-export const pb = arg => css({ paddingBottom: arg })
+export const pl = arg => responsiveStyle('paddingLeft', arg)
+export const pr = arg => responsiveStyle('paddingRight', arg)
+export const pt = arg => responsiveStyle('paddingTop', arg)
+export const pb = arg => responsiveStyle('paddingBottom', arg)
 export const px = arg => css(pl(arg), pr(arg))
 export const py = arg => css(pt(arg), pb(arg))
 export const p = arg => css(py(arg), px(arg))
 
 /* COLOR */
 export const bg = arg => responsiveStyle('background', arg )
-export const color = arg => css({ color: arg })
+export const color = arg => responsiveStyle('color', arg )
 
 /* LENGTH */
 export const width = arg => responsiveStyle('width', arg)
-export const maxWidth = arg => css({ maxWidth: arg })
+export const maxWidth = arg => responsiveStyle('maxWidth', arg)
 export const w = width
 export const maxW = maxWidth
 
 /* Typography */
-export const lh = arg => css({ lineHeight: arg })
-export const fs = arg => css({ fontSize: arg })
-export const fw = arg => css({ fontWeight: arg })
+export const lh = arg => responsiveStyle('lineHeight', arg)
+export const fs = arg => responsiveStyle('fontSize', arg)
+export const fw = arg => responsiveStyle('fontWeight', arg)
 
 /* Border */
-export const round = arg => css({ borderRadius: arg })
+export const round = arg => responsiveStyle('borderRadius', arg)
 export const rounded = round('.25rem')
-export const border = arg => css({ border: arg })
+export const border = arg => responsiveStyle('border', arg)
 
 
 /* LINK HELPER */

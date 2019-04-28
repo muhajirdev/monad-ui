@@ -35,7 +35,7 @@ const facepaintMq = facepaint(
 
 const responsiveStyle = (prop, val) => {
   if (Array.isArray(val)) {
-    css(facepaintMq({
+    return css(facepaintMq({
       [prop]: val
     }))
   }

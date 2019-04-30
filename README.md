@@ -154,7 +154,9 @@ bg({
 and `High Order Responsive API`
 
 ```javascript
-up('md')(bg('blue'));
+up('md')(
+    bg('blue')
+);
 ```
 
 ## Static => It doesn't accept `arg`
@@ -162,7 +164,9 @@ up('md')(bg('blue'));
 So it can only be used with `High Order Responsive API`
 
 ```javascript
-down('md')(hidden);
+down('md')(
+    hidden
+);
 ```
 
 ## Media Queries

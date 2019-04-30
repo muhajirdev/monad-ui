@@ -154,7 +154,7 @@ bg({
 and `High Order Responsive API`
 
 ```
-up(md)(
+up('md')(
     bg('blue')
 )
 ```

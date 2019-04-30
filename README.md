@@ -250,6 +250,14 @@ down('md)(
 - w is an alias for `width`
 - maxW is an alias for`maxWidth`
 
+## Typography
+
+| Prop | Type    |
+| ---- | ------- |
+| lh   | dynamic |
+| fs   | dynamic |
+| fw   | dynamic |
+
 ##
 
 # Misc

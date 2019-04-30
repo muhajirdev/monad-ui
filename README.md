@@ -266,7 +266,19 @@ down('md)(
 | rounded | static  |
 | border  | dynamic |
 
-##
+## Helper
+
+| Prop | Type   |
+| ---- | ------ |
+| link | static |
+
+- link is an alias for
+
+```
+  textDecoration: 'none',
+  color: 'inherit',
+  cursor: 'pointer'
+```
 
 # Misc
 

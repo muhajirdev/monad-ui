@@ -139,15 +139,15 @@ That means this can be used with
 `Array Responsive API`:
 
 ```javascript
-bg(["red", "green", "blue"]);
+bg(['red', 'green', 'blue']);
 ```
 
 `Object Responsive API`:
 
 ```javascript
 bg({
-  sm: "red",
-  lg: "blue"
+  sm: 'red',
+  lg: 'blue'
 });
 ```
 

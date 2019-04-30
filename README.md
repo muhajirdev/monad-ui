@@ -233,6 +233,14 @@ down('md)(
 | py   | dynamic |
 | p    | dynamic |
 
+## Color
+
+| Prop  | Type    |
+| ----- | ------- |
+| bg    | dynamic |
+| color | dynamic |
+
+##
 
 # Misc
 

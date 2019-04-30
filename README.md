@@ -130,7 +130,7 @@ This will turn `div`'s `background` into `blue` when screen size is above `576px
 | Dynamic | ✅                   | ✅                    | ✅                        |
 | Static  | ❌                   | ❌                    | ✅                        |
 
-- Dynamic => It accept `arg`
+## Dynamic => It accept `arg`
 
 For example, `bg('blue')
 
@@ -159,7 +159,7 @@ up(md)(
 )
 ```
 
-- Static => It doesn't accept `arg`
+## Static => It doesn't accept `arg`
 
 So it can only be used with `High Order Responsive API`
 

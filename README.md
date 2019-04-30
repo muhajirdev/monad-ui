@@ -31,7 +31,6 @@ In component
 
 With more styles
 
-
 ```
 <div css={[
     S.bg('blue'),
@@ -54,7 +53,7 @@ Currenlty, We have 4 breakpoints:
   xl: '1200px'
 ```
 
-## 1.
+## 1. Array Responsive API
 
 ```
   <div css={
@@ -70,7 +69,7 @@ When the screen size is above `768px`. It will be `blue`
 
 And so on.
 
-## 2.
+## 2.Object Responsive API
 
 ```
 <div css={
@@ -92,7 +91,7 @@ On screen size `lg` it will be `blue`.
 
 Notice that I didn't specify `md`. When it's not specified. It will take the previous value. Which is `red` in this case
 
-## 3.
+## 3. High Order Responsive API
 
 ```
 <div css={
@@ -126,22 +125,84 @@ This will turn `div`'s `background` into `blue` when screen size is above `576px
 
 # Available API
 
+- Dynamic => It accept `arg`
+
+For example, `bg('blue')
+
+That means this can be used with
+
+`Array Responsive API`:
+
+```javascript
+bg(["red", "green", "blue"]);
+```
+
+`Object Responsive API`:
+
+```javascript
+bg({
+  sm: "red",
+  lg: "blue"
+});
+```
+
+and `High Order Responsive API`
+
+```
+up(md)(
+    bg('blue')
+)
+```
+
+- Static => It doesn't accept `arg`
+
+So it can only be used with `High Order Responsive API`
+
+```
+down('md)(
+    hidden
+)
+```
+
 ## Media Queries
 
-| Prop | 
-|------|
+| Prop |
+| ---- |
 | up   |
 | down |
 
 ## Display
 
-| Prop       |
-| ---------- |
-| hidden     |
-| block      |
-| inline     |
-| flex       |
-| inlineFlex |
+| Prop       | type   |
+| ---------- | ------ |
+| hidden     | static |
+| block      | static |
+| inline     | static |
+| flex       | static |
+| inlineFlex | static |
+
+## Flex
+
+| Prop           | type    |
+| -------------- | ------- |
+| flexWrap       | dynamic |
+| flexDirection  | dynamic |
+| alignItems     | dynamic |
+| justifyContent | dynamic |
+| justifyBetween | static  |
+| flexCol        | static  |
+
+# Flex Utility
+
+- CenterX => Center Horizontally, it's just an alias for `[S.flex, S.justifyContent('center')]`
+- CenterY => Center Veritcally, it's just an alias for `[S.flex, S.alignItems('center')]`
+- Center => An alias for `CenterX + CenterY`
+
+| Prop    | Type   |
+| ------- | ------ |
+| centerX | static |
+| centerY | static |
+| center  | static |
 
 # Misc
 

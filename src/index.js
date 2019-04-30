@@ -128,4 +128,5 @@ export const border = arg => responsiveStyle('border', arg)
 export const link = css({
   textDecoration: 'none',
   color: 'inherit',
+  cursor: 'pointer'
 })

@@ -258,6 +258,14 @@ down('md)(
 | fs   | dynamic |
 | fw   | dynamic |
 
+## Border
+
+| Prop    | Type    |
+| ------- | ------- |
+| round   | dynamic |
+| rounded | static  |
+| border  | dynamic |
+
 ##
 
 # Misc

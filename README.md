@@ -125,6 +125,11 @@ This will turn `div`'s `background` into `blue` when screen size is above `576px
 
 # Available API
 
+| Type    | Array Responsive API | Object Responsive API | High Order Responsive API |
+| ------- | -------------------- | --------------------- | ------------------------- |
+| Dynamic | ✅                   | ✅                    | ✅                        |
+| Static  | ❌                   | ❌                    | ✅                        |
+
 - Dynamic => It accept `arg`
 
 For example, `bg('blue')
@@ -192,7 +197,7 @@ down('md)(
 | justifyBetween | static  |
 | flexCol        | static  |
 
-# Flex Utility
+## Flex Utility
 
 - CenterX => Center Horizontally, it's just an alias for `[S.flex, S.justifyContent('center')]`
 - CenterY => Center Veritcally, it's just an alias for `[S.flex, S.alignItems('center')]`
@@ -203,6 +208,18 @@ down('md)(
 | centerX | static |
 | centerY | static |
 | center  | static |
+
+## Margin
+
+| Prop | Type    |
+| ---- | ------- |
+| ml   | dynamic |
+| mr   | dynamic |
+| mt   | dynamic |
+| mb   | dynamic |
+| mx   | dynamic |
+| my   | dynamic |
+| m    | dynamic |
 
 # Misc
 

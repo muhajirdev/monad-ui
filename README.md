@@ -153,17 +153,15 @@ bg({
 
 and `High Order Responsive API`
 
-```
-up('md')(
-    bg('blue')
-)
+```javascript
+up('md')(bg('blue'));
 ```
 
 ## Static => It doesn't accept `arg`
 
 So it can only be used with `High Order Responsive API`
 
-```
+```javascript
 down('md)(
     hidden
 )

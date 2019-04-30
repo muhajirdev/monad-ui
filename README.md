@@ -199,15 +199,15 @@ down('md)(
 
 ## Flex Utility
 
-- CenterX => Center Horizontally, it's just an alias for `[S.flex, S.justifyContent('center')]`
-- CenterY => Center Veritcally, it's just an alias for `[S.flex, S.alignItems('center')]`
-- Center => An alias for `CenterX + CenterY`
-
 | Prop    | Type   |
 | ------- | ------ |
 | centerX | static |
 | centerY | static |
 | center  | static |
+
+- CenterX => Center Horizontally, it's just an alias for `[S.flex, S.justifyContent('center')]`
+- CenterY => Center Veritcally, it's just an alias for `[S.flex, S.alignItems('center')]`
+- Center => An alias for `CenterX + CenterY`
 
 ## Margin
 

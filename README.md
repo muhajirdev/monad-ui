@@ -162,9 +162,7 @@ up('md')(bg('blue'));
 So it can only be used with `High Order Responsive API`
 
 ```javascript
-down('md)(
-    hidden
-)
+down('md')(hidden);
 ```
 
 ## Media Queries

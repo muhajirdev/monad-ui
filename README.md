@@ -221,6 +221,19 @@ down('md)(
 | my   | dynamic |
 | m    | dynamic |
 
+## Padding
+
+| Prop | Type    |
+| ---- | ------- |
+| pl   | dynamic |
+| pr   | dynamic |
+| pt   | dynamic |
+| pb   | dynamic |
+| px   | dynamic |
+| py   | dynamic |
+| p    | dynamic |
+
+
 # Misc
 
 ## Do I always have to `import * as S from 'monad-ui'`

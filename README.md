@@ -124,6 +124,25 @@ This will hide the `div` when screen size is above `576px`
 
 This will turn `div`'s `background` into `blue` when screen size is above `576px`
 
+# Available API
+
+## Media Queries
+
+| Prop | 
+|------|
+| up   |
+| down |
+
+## Display
+
+| Prop       |
+| ---------- |
+| hidden     |
+| block      |
+| inline     |
+| flex       |
+| inlineFlex |
+
 # Misc
 
 ## Do I always have to `import * as S from 'monad-ui'`

@@ -107,7 +107,7 @@ export const p = arg => responsiveStyle([px, py], arg)
 export const bg = arg => responsiveStyle('background', arg )
 export const color = arg => responsiveStyle('color', arg )
 
-/* LENGTH */
+/* Size */
 export const width = arg => responsiveStyle('width', arg)
 export const maxWidth = arg => responsiveStyle('maxWidth', arg)
 export const w = width

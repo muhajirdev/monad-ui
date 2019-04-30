@@ -240,6 +240,16 @@ down('md)(
 | bg    | dynamic |
 | color | dynamic |
 
+## Size
+
+| Prop | Type    |
+| ---- | ------- |
+| w    | dynamic |
+| maxW | dynamic |
+
+- w is an alias for `width`
+- maxW is an alias for`maxWidth`
+
 ##
 
 # Misc

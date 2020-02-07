@@ -1,317 +1,192 @@
-# MONAD UI
+<!-- markdownlint-disable MD014 MD033 MD041 -->
 
-A Utility first CSS-in-JS
+![monad-ui](monad-ui.png)
 
-Inspired by:
+<div align=center>
 
-- Rebass
-- TailwindCSS
-- Smooth UI
-- Material UI
+Inspired by [Rebass](https://github.com/rebassjs/rebass), [TailwindCSS](https://github.com/tailwindcss/tailwindcss), [Smooth UI](https://github.com/smooth-code/smooth-ui), and [Material UI](https://github.com/mui-org/material-ui). <br>
+Implemented in [Emotion](https://github.com/emotion-js/emotion).
 
-Implemented in EmotionJS
+![npm](https://badgen.net/npm/v/monad-ui)
+![downloads](https://badgen.net/npm/dt/monad-ui)
+![license](https://badgen.net/npm/license/monad-ui)
 
-# Getting Started
-
-Install `emotion.js`
-
-In this tutorial we're going to use emotion's css prop API
-
-```
-import * as S from 'monad-ui`
-```
-
-In component
-
-```
-<div css={S.bg('blue)}>
-    Monad UI
 </div>
+
+---
+
+- [Usage](#usage)
+  - [Basic example](#basic-example)
+  - [Responsive styles](#responsive-styles)
+- [Static vs Dynamic APIs](#static-vs-dynamic-apis)
+- [Available APIs](#available-apis)
+- [FAQs](#faqs)
+- [License](#license)
+
+---
+
+## Usage
+
+### Basic example
+
+```sh
+# using npm
+npm install monad-ui
+
+# using yarn
+yarn add monad-ui
 ```
 
-With more styles
+```jsx
+import * as S from 'monad-ui';
 
+// blue background
+function Example() {
+  return (
+    <div css={S.bg('blue')}>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    </div>
+  );
+}
+
+// blue background and red text color
+function Example() {
+  return (
+    <div css={[S.bg('blue'), S.color('red')]}>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    </div>
+  );
+}
 ```
-<div css={[
-    S.bg('blue'),
-    S.color('red),
-]}>
-Monad UI
-</div>
-```
 
-It will styles the `div`'s `background` to `blue` and `color` to `red`
+### Responsive styles
 
-# 3 Ways to make the style Responsive
+Monad UI has four breakpoints ([view source](https://github.com/muhajirdev/monad-ui/blob/master/src/index.js#L8-L13)):
 
-Currenlty, We have 4 breakpoints:
-
-```
-  sm: '576px'
-  md: '768px'
-  lg: '992px'
+```js
+const breakpoints = {
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
   xl: '1200px'
+};
 ```
 
-## 1. Array Responsive API
+There are many ways to implement responsive styles:
 
-```
-  <div css={
-    S.bg(['red', 'green', 'blue'])}
-  >Monad UI</div>
-```
+1. **Array Responsive API**
 
-It will make the `div`'s `background` to `red`.
+   ```js
+   import * as S from 'monad-ui';
 
-When the screen size is above `576px`. It will be `green`
+   function Example() {
+     return (
+       <div css={S.bg(['red', 'green', 'blue'])}>
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+       </div>
+     );
+   }
+   ```
 
-When the screen size is above `768px`. It will be `blue`
+   Example above will change the `div`'s `background` to `red`. When the screen size is above `576px`, it will be `green`. When the screen size is above `768px`, it will be `blue`. And so on.
 
-And so on.
+2. **Object Responsive API**
 
-## 2.Object Responsive API
+   ```js
+   import * as S from 'monad-ui';
 
-```
-<div css={
-    S.bg({
-        sm: 'red',
-        lg: 'blue',
-    })}
->
-    Monad UI
-</div>
+   function Example() {
+     return (
+       <div css={S.bg({ sm: 'red', lg: 'blue' })}>
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+       </div>
+     );
+   }
+   ```
 
-```
+   Note that `md` is not specified. When it's not specified, it will take the previous value, which is `red` in this case.
 
-This is just another form of responsive API.
+3. **Higher-order Function Responsive API**
 
-On screen size `sm` it will be `red`.
+   ```js
+   import * as S from 'monad-ui';
 
-On screen size `lg` it will be `blue`.
+   function Example() {
+     return (
+       <div css={S.up('sm')(S.hidden)}>
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+       </div>
+     );
+   }
+   ```
 
-Notice that I didn't specify `md`. When it's not specified. It will take the previous value. Which is `red` in this case
+   Example above will hide the `div` when the screen size is above `576px`.
 
-## 3. High Order Responsive API
+   ```js
+   import * as S from 'monad-ui';
 
-```
-<div css={
-    S.up('sm')(hidden)
-}>
-    Monad UI
-</div>
-```
+   function Example() {
+     return (
+       <div css={S.up('sm')(S.bg('blue'))}>
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+       </div>
+     );
+   }
+   ```
 
-This will hide the `div` when screen size is below `576px`
+   Example above will change the `div`'s `background` into `blue` when the screen size is above `576px`.
 
-```
-<div css={
-    S.up('sm')(hidden)
-}>
-    Monad UI
-</div>
-```
+## Static vs Dynamic APIs
 
-This will hide the `div` when screen size is above `576px`
-
-```
-<div css={
-    S.up('sm')(S.bg('blue'))
-}>
-    Monad UI
-</div>
-```
-
-This will turn `div`'s `background` into `blue` when screen size is above `576px`
-
-# Available API
+- Dynamic type accept arguments (e.g. `S.bg('blue')`).
+- Static type does not accept arguments. (e.g. `S.down('md')(S.hidden)`).
 
 | Type    | Array Responsive API | Object Responsive API | High Order Responsive API |
 | ------- | -------------------- | --------------------- | ------------------------- |
 | Dynamic | ✅                   | ✅                    | ✅                        |
 | Static  | ❌                   | ❌                    | ✅                        |
 
-## Dynamic => It accept `arg`
+## Available APIs
 
-For example, `bg('blue')
+View all available APIs at [`./docs/available-apis.md`](./docs/available-apis.md).
 
-That means this can be used with
+## FAQs
 
-`Array Responsive API`:
+- **Do I always have to `import * as S from 'monad-ui'`?**
 
-```javascript
-bg(['red', 'green', 'blue']);
-```
+  If you only use a few styles, you can also import and use like this:
 
-`Object Responsive API`:
+  ```js
+  import { bg, hidden } from 'monad-ui';
 
-```javascript
-bg({
-  sm: 'red',
-  lg: 'blue'
-});
-```
+  function Example() {
+    return (
+      <div css={bg('blue')}>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      </div>
+    );
+  }
+  ```
 
-and `High Order Responsive API`
+- **Too many styles?**
 
-```javascript
-up('md')(
-    bg('blue')
-);
-```
+  Consider extracting your style outside like this:
 
-## Static => It doesn't accept `arg`
+  ```js
+  import { css } from '@emotion/core';
+  import { bg, color } from 'monad-ui';
 
-So it can only be used with `High Order Responsive API`
+  const style = css([bg('blue'), color('red')]);
 
-```javascript
-down('md')(
-    hidden
-);
-```
+  function Example() {
+    return (
+      <div class={style}>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      </div>
+    );
+  }
+  ```
 
-## Media Queries
+## License
 
-| Prop |
-| ---- |
-| up   |
-| down |
-
-## Display
-
-| Prop       | type   |
-| ---------- | ------ |
-| hidden     | static |
-| block      | static |
-| inline     | static |
-| flex       | static |
-| inlineFlex | static |
-
-## Flex
-
-| Prop           | type    |
-| -------------- | ------- |
-| flexWrap       | dynamic |
-| flexDirection  | dynamic |
-| alignItems     | dynamic |
-| justifyContent | dynamic |
-| justifyBetween | static  |
-| flexCol        | static  |
-
-## Flex Utility
-
-| Prop    | Type   |
-| ------- | ------ |
-| centerX | static |
-| centerY | static |
-| center  | static |
-
-- CenterX => Center Horizontally, it's just an alias for `[S.flex, S.justifyContent('center')]`
-- CenterY => Center Veritcally, it's just an alias for `[S.flex, S.alignItems('center')]`
-- Center => An alias for `CenterX + CenterY`
-
-## Margin
-
-| Prop | Type    |
-| ---- | ------- |
-| ml   | dynamic |
-| mr   | dynamic |
-| mt   | dynamic |
-| mb   | dynamic |
-| mx   | dynamic |
-| my   | dynamic |
-| m    | dynamic |
-
-## Padding
-
-| Prop | Type    |
-| ---- | ------- |
-| pl   | dynamic |
-| pr   | dynamic |
-| pt   | dynamic |
-| pb   | dynamic |
-| px   | dynamic |
-| py   | dynamic |
-| p    | dynamic |
-
-## Color
-
-| Prop  | Type    |
-| ----- | ------- |
-| bg    | dynamic |
-| color | dynamic |
-
-## Size
-
-| Prop | Type    |
-| ---- | ------- |
-| w    | dynamic |
-| maxW | dynamic |
-
-- w is an alias for `width`
-- maxW is an alias for`maxWidth`
-
-## Typography
-
-| Prop | Type    |
-| ---- | ------- |
-| lh   | dynamic |
-| fs   | dynamic |
-| fw   | dynamic |
-
-## Border
-
-| Prop    | Type    |
-| ------- | ------- |
-| round   | dynamic |
-| rounded | static  |
-| border  | dynamic |
-
-## Helper
-
-| Prop | Type   |
-| ---- | ------ |
-| link | static |
-
-- link is an alias for
-
-```
-  textDecoration: 'none',
-  color: 'inherit',
-  cursor: 'pointer'
-```
-
-# Misc
-
-## Do I always have to `import * as S from 'monad-ui'`
-
-If you only use a few style
-
-You can also import it this way
-
-```
-import {bg, hidden} from 'monad-ui'
-```
-
-And use it like this
-
-```
-<div css={bg('blue')}></div>
-```
-
-## Too many styles ?
-
-Consider extracting your style outside
-
-```
-import {css} from `@emotion/core`
-import {bg, color} from 'monad-ui'
-
-const style = css([
-    bg('blue'),
-    color('red')
-])
-
-// ... in component
-
-<div class={style}></div>
-```
+[ISC License, Copyright (c) 2020, Muhammad Muhajir](./LICENSE)

@@ -1,16 +1,29 @@
 {
   "name": "monad-ui",
+  "description": "A utility first CSS-in-JS",
   "version": "1.1.1",
-  "description": "Utility first CSS-in-JS",
+  "author": "Muhammad Muhajir <muhammad@muhajir.dev>",
+  "repository": "git+https://github.com/muhajirdev/monad-ui.git",
+  "homepage": "https://github.com/muhajirdev/monad-ui#readme",
+  "bugs": "https://github.com/muhajirdev/monad-ui/issues",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib --source-maps",
     "prepare": "npm run build",
-    "build": "babel src -d lib --source-maps"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/muhajirdev/monad-ui.git"
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "facepaint": "^1.2.1",
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@emotion/core": "^10.0.9",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.9",
@@ -25,23 +38,5 @@
     "javascript",
     "utility"
   ],
-  "author": "Muhammad Muhajir <muhammad@muhajir.dev>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/muhajirdev/monad-ui/issues"
-  },
-  "homepage": "https://github.com/muhajirdev/monad-ui#readme",
-  "dependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/register": "^7.4.0",
-    "facepaint": "^1.2.1",
-    "ramda": "^0.26.1"
-  },
-  "devDependencies": {
-    "@emotion/core": "^10.0.9",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
-  }
+  "license": "ISC"
 }

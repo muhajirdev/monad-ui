@@ -21,12 +21,12 @@
     "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "@emotion/core": "^10.0.9",
+    "@emotion/core": "^10.0.28",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.9",
+    "@emotion/core": "^10.0.28",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },

@@ -22,12 +22,12 @@
   },
   "devDependencies": {
     "@emotion/core": "^10.0.28",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.8.4"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.28",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.8.4"
   },
   "keywords": [

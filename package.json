@@ -21,7 +21,7 @@
     "ramda": "^0.27.0"
   },
   "devDependencies": {
-    "@emotion/core": "^10.0.28",
+    "@emotion/core": "^11.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.8.4"
   },

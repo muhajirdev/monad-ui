@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@emotion/core": "^10.0.28",
-    "react": "^16.13.1",
-    "react-dom": "^16.8.4"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.28",
